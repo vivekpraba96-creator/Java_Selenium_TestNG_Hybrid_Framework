@@ -1,98 +1,117 @@
-# Java + Selenium + TestNG Hybrid Automation Framework
+# Java Selenium TestNG Hybrid Automation Framework
 
-A beginner-friendly Maven framework that combines:
-- **Page Object Model (POM):** page locators and page actions are separated from tests.
-- **Data-driven testing:** invalid-login test data is supplied by a TestNG `@DataProvider`.
-- **Reusable base test:** browser setup and teardown are centralized.
-- **Configuration file:** base URL, browser and explicit wait are in `config.properties`.
-- **Assertions:** TestNG validates expected results.
-- **Driver management:** WebDriverManager downloads/sets up ChromeDriver.
+## Project Overview
 
-## Included test coverage
+This project is a UI test automation framework built using **Java, Selenium WebDriver, TestNG, and Maven**. It is designed to organize, execute, and maintain automated web application test cases in a reusable and structured way.
 
-1. Valid login succeeds.
-2. Invalid username shows an error.
-3. Invalid password shows an error.
-4. Empty credentials show an error.
-5. Products page title is displayed after login.
-6. Backpack can be added to the cart and the cart badge becomes `1`.
+The framework serves as a practical demonstration of web UI automation, test organization, assertions, and Maven-based test execution.
 
-The tests use the public demo site https://www.saucedemo.com/ and its standard demo credentials:
-- Username: `standard_user`
-- Password: `secret_sauce`
+## Tech Stack
 
-## Requirements
+- **Programming Language:** Java
+- **Automation Tool:** Selenium WebDriver
+- **Test Framework:** TestNG
+- **Build and Dependency Management:** Maven
+- **IDE:** IntelliJ IDEA
+- **Version Control:** Git and GitHub
 
-- JDK 17 or later
-- IntelliJ IDEA
-- Maven (or use IntelliJ's Maven integration)
-- Google Chrome
-- Internet access for Maven dependencies and the demo site
+## Key Features
 
-## Import into IntelliJ IDEA
+- Reusable Selenium automation code
+- Test execution and organization using TestNG
+- Assertions to validate actual and expected results
+- Maven dependency management and test execution
+- Structured project organization for maintainability
+- Version control and source code management using Git
 
-1. Download and extract this ZIP file.
-2. Open IntelliJ IDEA.
-3. Choose **File → Open** and select the extracted `Java_Selenium_TestNG_Hybrid_Framework` folder (the folder containing `pom.xml`).
-4. If prompted, choose **Load Maven Project** / **Trust Project**.
-5. Set the Project SDK to JDK 17 or later: **File → Project Structure → Project SDK**.
-6. Wait for Maven to download dependencies.
-7. Open `testng.xml`, then click the green run icon beside the suite, or run the tests using Maven.
+*Add features such as Page Object Model, data-driven testing, screenshots on failure, or HTML reporting only after confirming they are implemented in the project.*
 
-## Run tests
+## Project Structure
 
-From the project root in the IntelliJ Terminal:
-
-```bash
-mvn clean test
-```
-
-If PowerShell says `mvn` is not recognized, Maven is not installed or its `bin` folder is not on PATH. You can still run the suite from IntelliJ's Maven tool window:
-**View → Tool Windows → Maven → Lifecycle → test**.
-
-## Project structure
+The following is an illustrative structure. Update it to match the actual folders and files in your project.
 
 ```text
 Java_Selenium_TestNG_Hybrid_Framework/
+├── src/
+│   ├── main/
+│   │   └── java/
+│   └── test/
+│       └── java/
 ├── pom.xml
 ├── testng.xml
 ├── README.md
-└── src/
-    └── test/
-        ├── java/com/vivek/
-        │   ├── base/BaseTest.java
-        │   ├── config/ConfigReader.java
-        │   ├── driver/DriverFactory.java
-        │   ├── pages/LoginPage.java
-        │   ├── pages/InventoryPage.java
-        │   ├── tests/LoginTests.java
-        │   ├── tests/InventoryTests.java
-        │   └── utils/TestData.java
-        └── resources/config.properties
+└── .gitignore
 ```
 
-## Change settings
+## Prerequisites
 
-Edit `src/test/resources/config.properties`:
+Install the following before running the project:
 
-```properties
-baseUrl=https://www.saucedemo.com/
-browser=chrome
-explicitWaitSeconds=10
-```
+- Java JDK compatible with the project configuration
+- IntelliJ IDEA
+- Git
+- Maven, or IntelliJ's Maven integration
+- A supported web browser
 
-Java system properties can override config values, for example:
+## Getting Started
+
+### 1. Clone the Repository
 
 ```bash
-mvn clean test -DbaseUrl=https://www.saucedemo.com/ -Dbrowser=chrome
+git clone https://github.com/vivekpraba96-creator/Java_Selenium_TestNG_Hybrid_Framework.git
 ```
 
-## Troubleshooting
+### 2. Open the Project
 
-- **JDK error:** configure JDK 17+ in IntelliJ.
-- **Maven dependencies not loading:** open the Maven tool window and click Reload All Maven Projects.
-- **ChromeDriver/browser issue:** update Chrome and retry; WebDriverManager will attempt to set up a compatible driver.
-- **Site or network issue:** check that `https://www.saucedemo.com/` opens in Chrome.
-- **Tests fail on first run:** check the error details in the TestNG/Maven output before changing locators.
+1. Open IntelliJ IDEA.
+2. Select **Open** and choose the cloned project folder.
+3. Allow IntelliJ IDEA to import the Maven project.
+4. Configure a compatible JDK.
 
-This is a starter framework. It intentionally uses a small set of classes so you can learn how the pieces work before adding Excel files, screenshots, reporting, logging, parallel execution, or CI/CD.
+### 3. Load Maven Dependencies
+
+Open the `pom.xml` file and reload the Maven project using the Maven tool window in IntelliJ IDEA.
+
+### 4. Execute the Tests
+
+If the project has a TestNG suite file named `testng.xml`, run the suite from IntelliJ IDEA.
+
+Alternatively, from the project root, execute:
+
+```bash
+mvn test
+```
+
+This command runs tests according to the project's Maven and TestNG configuration.
+
+## Test Execution and Validation
+
+TestNG annotations and assertions can be used to organize test execution and validate application behavior. Test results depend on the test cases, browser configuration, and application under test.
+
+## Version Control
+
+This project uses Git for version control and GitHub for remote repository hosting.
+
+```bash
+git add .
+git commit -m "Update automation framework documentation"
+git push
+```
+
+## Future Enhancements
+
+- Expand automated test coverage
+- Improve reusable test utilities
+- Introduce external test data management
+- Add detailed test execution reports
+- Integrate automated execution into a CI/CD pipeline
+
+## Author
+
+**Vivek V**
+
+Java | Selenium WebDriver | TestNG | Maven | QA Automation
+
+## Repository
+
+[Java Selenium TestNG Hybrid Automation Framework](https://github.com/vivekpraba96-creator/Java_Selenium_TestNG_Hybrid_Framework)
